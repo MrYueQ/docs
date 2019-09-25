@@ -135,3 +135,16 @@ output {
 }
 
 ```
+
+----
+- alias
+```yaml
+curl -XPOST esConn/_aliases -d '
+{
+    "actions" : [
+        { "add" : { "index" : "NewIndexName", "alias" : "AliasName" } },
+		{ "remove" : { "index" : "OldIndexName", "alias" : "AliasName" } }
+    ]
+}
+'
+```
