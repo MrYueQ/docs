@@ -83,7 +83,7 @@ curl -XPOST http://es01-data-demo:19200/_reindex?wait_for_completion=false -d '
   },
   "dest": {
     "index": "NewIndexName",
-	"pipeline": "index_remove_fields",
+    "pipeline": "index_remove_fields",
     "op_type": "create"
   }
 }
@@ -143,7 +143,7 @@ curl -XPOST esConn/_aliases -d '
 {
     "actions" : [
         { "add" : { "index" : "NewIndexName", "alias" : "AliasName" } },
-		{ "remove" : { "index" : "OldIndexName", "alias" : "AliasName" } }
+        { "remove" : { "index" : "OldIndexName", "alias" : "AliasName" } }
     ]
 }
 '
