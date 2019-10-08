@@ -12,7 +12,6 @@ Configuartion --> Data Sources --> zabbix
 
 # Zabbix API details
 # 这部分目前借助zabbix 内部提供的隔离机制
-*/
 ```
 ----
 
