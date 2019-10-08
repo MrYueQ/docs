@@ -1,6 +1,16 @@
-***HTML Not working in Text panel***
-
 ----
+- enable zabbix data source
+Configuartion --> Plugins --> zabbix --> Enable
+
+- config data source is zabbix
+
+```yaml
+# add zabbix mysql 
+Configuartion --> Data Sources --> zabbix
+```
+----
+
+***HTML Not working in Text panel***
 
 ```yaml
 # question
