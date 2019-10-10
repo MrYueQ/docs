@@ -1,0 +1,29 @@
+***exampel***
+
+----
+
+- search host
+```yaml
+# org url
+# https://www.zabbix.com/documentation/4.2/manual/api/reference/trigger/get
+# 过滤 主机名称为 demo01 中 触发器
+{
+    "jsonrpc": "2.0",
+    "method": "trigger.get",
+    "params": {
+    	"selectFunctions": "extend",
+    	"output": [
+            "triggerid",
+            "description",
+            "priority",
+            "expression"
+        ],
+    	"filter": {
+    	        "host":"demo01",
+              "status":1
+    	}
+    },
+    "auth": "5c17b2d9061803f8adecec74f62beb60",
+    "id": 1
+}
+```
