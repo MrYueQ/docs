@@ -48,3 +48,10 @@ docker run --name zabbix-web-nginx-mysql -t \
       -p 10080:80 \
       -d zabbix/zabbix-web-nginx-mysql:latest
 ```
+
+- agent
+```yaml
+docker run --name zabbix-agent-v1.0 --link zabbix-server-mysql:zabbix-server-mysql -d zabbix/zabbix-agent:latest
+
+docker exec -ti zabbix-agent-v1.0 /bin/bash
+```
