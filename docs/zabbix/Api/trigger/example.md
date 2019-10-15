@@ -27,3 +27,37 @@
     "id": 1
 }
 ```
+- host.get
+```yaml
+{
+    "jsonrpc": "2.0",
+    "method": "host.get",
+    "params": {
+    	"selectItems":["itemid", "key_", "delay"],
+    		"filter": {
+    			"host":"cmdb02-ops-prod-bj1"
+    		},
+   "selectTriggers": ["triggerid", "templateid", "state"],
+   "output": "hostid"
+    },
+    "auth": "5c17b2d9061803f8adecec74f62beb60",
+    "id": 1
+}
+```
+
+- item.get
+```yaml
+{
+    "jsonrpc": "2.0",
+    "method": "item.get",
+    "params": {
+    	"selectTriggers":"extend",
+    		"filter": {
+    			"host":"cmdb02-ops-prod-bj1",
+    			"key_":"vm.memory.size[available]"
+    		}
+    },
+    "auth": "5c17b2d9061803f8adecec74f62beb60",
+    "id": 1
+}
+```
