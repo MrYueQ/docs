@@ -1,4 +1,4 @@
-***install**** 
+***install*** 
 
 - update yum source
 ```shell
@@ -20,7 +20,7 @@ yum install --downloadonly --downloaddir=./ td-agent-bit
 - scp repo server
 ```shell
 rpm -ihv http://repo.com/centos/7/x86_64/td-agent-bit-1.3.2-1.x86_64.rpm
-
+createrepo /data/www/centos/7/x86_64/
 yum install td-agent-bit
 ```
 
