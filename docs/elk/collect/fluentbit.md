@@ -28,3 +28,16 @@ Fluent Bit will try to open somefile.conf, if it fails it will try /tmp/somefile
 - Retry_Limit
 - Buffer_Max_Size 
 - Tag
+
+-----
+
+- tools
+```yaml
+# add field hostname
+cd  /opt/td-agent-bit/bin
+./td-agent-bit -i mem -o stdout -F record_modifier -p 'Record=hostname ${HOSTNAME}' -m '*'
+
+# add field hostname
+./td-agent-bit -i mem -o stdout -F record_modifier -p 'Record=hostname ${ADDRESS}' -m '*'
+
+```
