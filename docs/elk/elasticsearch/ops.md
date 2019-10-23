@@ -112,4 +112,72 @@ filter {
     }
 ```
 
-- 
+- enable elastic gc [low version] 
+```shell
+vim jvm.options
+# update loggc
+-Xloggc:SystemFilePath/FileName
+```
+
+- new index mapping
+
+```yaml
+PUT ops.projectName.ServiceName
+{
+    "mappings" : {
+      "doc" : {
+        "properties" : {
+          "datetime" : {
+            "type" : "date"
+          },
+          "domain" : {
+            "type" : "keyword"
+          },
+          "tags" : {
+            "type" : "keyword"
+          },
+          "ua" : {
+            "properties" : {
+              "build" : {
+                "type" : "keyword"
+              },
+              "device" : {
+                "type" : "keyword"
+              },
+              "major" : {
+                "type" : "keyword"
+              },
+              "minor" : {
+                "type" : "keyword"
+              },
+              "name" : {
+                "type" : "keyword"
+              },
+              "os" : {
+                "type" : "keyword"
+              },
+              "os_major" : {
+                "type" : "keyword"
+              },
+              "os_minor" : {
+                "type" : "keyword"
+              },
+              "os_name" : {
+                "type" : "keyword"
+              },
+              "patch" : {
+                "type" : "keyword"
+              }
+            }
+          },
+          "user_agent" : {
+            "type" : "keyword"
+          },
+          "x_forwarded_for" : {
+            "type" : "keyword"
+            }
+          }
+        }
+      }
+    }
+```
