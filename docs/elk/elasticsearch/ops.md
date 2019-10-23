@@ -181,3 +181,41 @@ PUT ops.projectName.ServiceName
       }
     }
 ```
+
+----
+
+***shard***
+
+- reroute
+```yaml
+POST /_cluster/reroute
+{
+    "commands" : [
+        {
+            "move" : {
+                "index" : "test", "shard" : 0,
+                "from_node" : "node1", "to_node" : "node2"
+            }
+        },
+        {
+          "allocate_replica" : {
+                "index" : "test", "shard" : 1,
+                "node" : "node3"
+          }
+        }
+    ]
+}
+
+https://www.elastic.co/guide/en/elasticsearch/reference/6.2/allocation-filtering.html
+
+curl -XPUT  '_cluster/settings' -d '{
+  "transient" : {
+    "cluster.routing.allocation.exclude._name" : "es02-A-hd1"
+  }
+}
+'
+
+index.routing.allocation.primaries
+
+https://www.elastic.co/guide/en/elasticsearch/reference/5.2/shards-allocation.html
+```
