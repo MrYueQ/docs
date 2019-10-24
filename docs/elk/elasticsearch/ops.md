@@ -219,3 +219,25 @@ index.routing.allocation.primaries
 
 https://www.elastic.co/guide/en/elasticsearch/reference/5.2/shards-allocation.html
 ```
+
+----
+
+- docs crud
+
+```yaml
+# update field value
+POST demo/doc/1/_update
+{
+    "doc" : {
+        "geoip.ip" : "172.16.1.1"
+    },
+    "detect_noop": false
+}
+
+# update netst type fields value
+POST demo/doc/1/_update
+{
+    "script" : "ctx._source.geoip.ip = '172.16.1.1'"
+}
+
+```
