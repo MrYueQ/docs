@@ -94,6 +94,41 @@ curl -XGET http://es01-data-demo:19200/_tasks?detailed=true&actions=*reindex
 ```
 
 ----
+***example***
+
+```yaml
+POST _reindex?wait_for_completion=false
+{
+  "conflicts": "proceed",
+  "source": {
+    "index": "reindex-indexName-stats",
+     "size": 10000,
+     "query":{
+        "bool":{
+            "must":[
+                {
+                    "match_phrase":{
+                        "domain":{
+                            "query":"www.baidu.com"
+                        }
+                    }
+                },
+                {
+                    "exists":{
+                        "field":"geoip.ip"
+                    }
+                }
+            ]
+          }
+      }
+  },
+  "dest": {
+    "index": "new-indexName-timestamp",
+    "op_type": "create"
+  }
+}
+```
+----
 
 - logstash configuration
 ```yaml
