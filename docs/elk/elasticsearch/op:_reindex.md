@@ -1,6 +1,30 @@
 ***_reindex***
 
 ---
+- reindex remote
+
+**source remote witelist enable**
+
+```yaml
+POST _reindex
+{
+  "source": {
+    "remote": {
+      "host": "http://otherhost:9200",
+      "connect_timeout": "10s"
+    },
+    "index": "source",
+    "size": 10000
+    "query": {
+      "match_all": {}
+    }
+  },
+  "dest": {
+    "index": "dest"
+  }
+}
+```
+---
 
 - get index mapping
 ```yaml
